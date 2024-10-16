@@ -5,7 +5,7 @@ type ImageProp = {
   imageAlt: string;
 };
 
-export function Imagem(props: ImageProp) {
+export function Imagem({imageUrl, imageAlt}: ImageProp) {
   return (
     <div className="border pt-5 pb-5 ml-5 rounded-3xl shadow-xl">
       <div className="font-bold text-lg p-5">
@@ -13,8 +13,8 @@ export function Imagem(props: ImageProp) {
       </div>
       <div className="m-5 flex flex-row justify-center">
         <Image
-          src={props.imageUrl}
-          alt={props.imageAlt}
+          src={imageUrl}
+          alt={imageAlt}
           width={212}
           height={212}
         />
