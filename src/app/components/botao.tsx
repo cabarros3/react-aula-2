@@ -1,8 +1,24 @@
 "use client";
 
+import { getAddress } from "../../../get-address";
+import { useState } from "react";
+
+
 export function Botao() {
-  function click() {
-    alert("Olá");
+
+  let address = "Rua teste"
+
+  const [isAddress, setIsAddress] = useState(false)
+
+  async function HandleGetAddress() {
+    try{
+      const result = await getAddress("51270380");
+      address = result
+      console.log(result);
+    } catch (error){
+      alert("Ocorreu um erro ao obter o endereço")
+    }
+    
   }
 
   return (
@@ -12,11 +28,15 @@ export function Botao() {
       </div>
       <div className="flex flex-row justify-center ">
         <button
-          className="m-5 p-5 h-10 w-36 bg-blue-300 shadow-md font-semibold rounded-lg flex flex-row items-center text-lg"
-          onClick={click}
+          className="m-5 p-8 h-10 w-36 bg-blue-300 shadow-md font-semibold rounded-lg flex flex-row items-center text-lg"
+          onClick={HandleGetAddress}
         >
-          Clique aqui!
+          obter endereço
         </button>
+        
+      </div>
+      <div className="p-5">
+      <span>endereço: {address}</span>
       </div>
     </div>
   );
