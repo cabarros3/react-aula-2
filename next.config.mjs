@@ -8,6 +8,12 @@ const nextConfig = {
         port: "", // Porta (deixe vazio se não houver porta específica)
         pathname: "/**", // Padrão para permitir todas as imagens desse domínio
       },
+      {
+        protocol: "https",
+        hostname: "i.imgur.com", // Domínio permitido
+        port: "", // Porta (deixe vazio se não houver porta específica)
+        pathname: "/**", // Padrão para permitir todas as imagens desse domínio
+      },
     ],
   },
 };

@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export function Header() {
   return (
     <header className="mb-9 flex flex-row justify-between p-5 shadow-md bg-white">
@@ -24,6 +26,9 @@ export function Header() {
             >
               Github
             </a>
+          </li>
+          <li>
+            <Link href={"/useStates"}>Aprendendo Estados</Link>
           </li>
         </ul>
       </nav>
