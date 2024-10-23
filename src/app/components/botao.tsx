@@ -21,13 +21,17 @@ export function Botao() {
   });
 
   const [inputValue, setInputValue] = useState("");
+  const[loading, setLoading] = useState(false);
 
   async function HandleGetAddress() {
+    setLoading(true);
     try {
       const result = await getAddress(inputValue);
       setAddress(result);
     } catch (error) {
       alert(error);
+    }finally{
+      setLoading(false);
     }
   }
 
@@ -47,10 +51,10 @@ export function Botao() {
       </div>
       <div className="flex flex-row justify-center ">
         <button
-          className="m-5 p-8 h-10 w-36 bg-blue-300 shadow-md font-semibold rounded-lg flex flex-row items-center text-lg"
+          className={`${loading && 'opacity-30'} m-5 p-8 h-10 w-36 bg-blue-300 shadow-md font-semibold rounded-lg flex flex-row items-center text-lg`}
           onClick={HandleGetAddress}
         >
-          Obter endereço
+          {loading ? 'Carregando...' : "Obter endereço" }
         </button>
       </div>
       <div className="flex flex-col justify-center p-3">
